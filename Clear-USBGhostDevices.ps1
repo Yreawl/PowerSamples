@@ -21,3 +21,5 @@ ForEach ($dev in $unknown_devs)
 {
 	pnputil /remove-device $dev.InstanceId
 }
+
+pnputil.exe /scan-devices
