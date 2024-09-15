@@ -23,3 +23,5 @@ ForEach ($dev in $unknown_devs)
 }
 
 pnputil.exe /scan-devices
+
+# Get-PnpDevice | Where-Object { $_.Status -eq "Unknown" } | foreach-object { pnputil /remove-device /DeviceID $_.InstanceId }
