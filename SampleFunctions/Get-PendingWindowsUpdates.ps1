@@ -207,19 +207,6 @@
 		Write-Host "$env:COMPUTERNAME has $($pendingUpdates.Count) pending windows and a pending reboot is $($Result.rebootRequired)"
 	}
 	return $ExitCode
-}<#	
-	.NOTES
-	===========================================================================
-	 Created with: 	SAPIEN Technologies, Inc., PowerShell Studio 2024 v5.8.242
-	 Created on:   	29/06/2024 08:46
-	 Created by:   	yreaw
-	 Organization: 	
-	 Filename:     	
-	===========================================================================
-	.DESCRIPTION
-		A description of the file.
-#>
-
-
+}
 
 Get-PendingWindowsUpdates
