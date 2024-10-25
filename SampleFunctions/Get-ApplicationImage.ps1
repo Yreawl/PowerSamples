@@ -57,14 +57,17 @@ Function Get-ApplicationIcon
     )
     # Main block
     $ImageUrl = Search-ImageUrl -AppName $ApplicationName
+    
 
     if ($ImageUrl) {
         Write-Host "Logo found: $ImageUrl"
         $FileName = "$ApplicationName-Icon.png"
+        $TargetFile = "$($TargetPath)\$($FileName)"
         Download-Image -ImageUrl $ImageUrl -FileName "$($TargetPath)\$($FileName)"
-    } else {
+        Return $TargetFile
+       } else {
         Write-Host "Logo not found."
     }
 }
 
-Get-ApplicationIcon -ApplicationName $AppName -TargetPath $TargetPath
+$IconURI = Get-ApplicationIcon -ApplicationName $AppName -TargetPath $TargetPath

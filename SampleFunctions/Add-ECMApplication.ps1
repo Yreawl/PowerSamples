@@ -500,7 +500,6 @@ function Format-ObjectName
 	Write-Response -Message "Returning: $($ObjectName.trim())" -ForegroundColor white
 	return $ObjectName.trim()
 }
-
 function Add-ECMMSIApplicaiton
 {
 	param (
@@ -631,6 +630,7 @@ function Add-ECMMSIApplicaiton
 		[string]$ECMApplicationInstallCmdLine = "msiexec /i $($ECMApplicationMSI.Name) /quiet"
 	}
 	
+	# get the application icon
 	# Check icon is valid
 	
 	$ECMApplicationlicationIcon = Get-ChildItem -Path "\\$($SourceServer)\Source\Icons" -filter "*.png" | where-object { $_.Name -eq "$($RootPath.Name).png" -or $_.Name -eq "$($Manufacturer.trim()).png" -or $_.Name -eq "$($RootPath.Parent.Name).png" } | Select-Object -First 1
